@@ -53,6 +53,10 @@ h6 {
     isolation: isolate;
 }
 
+::selection {
+    background: aquamarine;
+}
+
 .uppercontainer {
     height: 80%;
     background-color: rgb(39, 97, 255);
@@ -71,11 +75,14 @@ h6 {
 
 
 .timer {
-    font-size: 2rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
 }
 
 .rdybtn {
     font-family: sans-serif;
+    font-weight: bold;
     font-size: 3rem;
     background-color: transparent;
     color: #f0f0f0;

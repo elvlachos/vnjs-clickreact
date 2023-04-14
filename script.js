@@ -1,30 +1,12 @@
-console.log("Hello World");
-
+let gameState = "waiting";
 const btn = document.querySelector(".rdybtn");
 const area = document.querySelector(".uppercontainer");
 const timerText = document.querySelector(".timer");
 
-btn.addEventListener("click", () => {
-  swapButtonVisibility();
-  startGame();
-});
-
 function swapButtonVisibility() {
   if (btn.style.display === "none") {
     btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-}
-
-function readyArea() {
-  area.style.cursor = "pointer";
-  area.style.background = "rgb(40, 230, 40)";
-  const time1 = new Date().getTime();
-  area.addEventListener("click", () => {
-    const time2 = new Date().getTime();
-    timerText.innerHTML = `${time2 - time1}ms`;
-  });
+  } else btn.style.display = "none";
 }
 
 function produceDelay(min, max) {
@@ -33,8 +15,25 @@ function produceDelay(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function startGame() {
-  area.style.background = "rgb(230, 40, 40)";
-  const gameDelay = produceDelay(1234, 6789);
-  setTimeout(readyArea, gameDelay);
+function clickOnArea(time1) {
+  console.log(time1);
+  const time2 = Date.now();
+  timerText.innerHTML = `${time2 - time1}ms`;
 }
+
+function areaToPlay() {
+  area.style.background = "green";
+  area.style.cursor = "pointer";
+  const time1 = Date.now();
+  area.addEventListener("click", () => {
+    clickOnArea(time1);
+  });
+}
+
+function startGame() {
+  swapButtonVisibility();
+  const delay = produceDelay(1000, 3000);
+  setTimeout(areaToPlay, delay);
+}
+
+btn.addEventListener("click", startGame);
