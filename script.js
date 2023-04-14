@@ -17,7 +17,24 @@ function swapButtonVisibility() {
   }
 }
 
-function startGame() {
-  area.style.background = "rgb(230, 50, 50)";
+function readyArea() {
   area.style.cursor = "pointer";
+  area.style.background = "rgb(40, 230, 40)";
+  const time1 = new Date().getTime();
+  area.addEventListener("click", () => {
+    const time2 = new Date().getTime();
+    timerText.innerHTML = `${time2 - time1}ms`;
+  });
+}
+
+function produceDelay(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+function startGame() {
+  area.style.background = "rgb(230, 40, 40)";
+  const gameDelay = produceDelay(1234, 6789);
+  setTimeout(readyArea, gameDelay);
 }
