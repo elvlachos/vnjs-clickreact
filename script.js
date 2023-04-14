@@ -1,3 +1,4 @@
+"use strict";
 let gameState = "waiting";
 const btn = document.querySelector(".rdybtn");
 const area = document.querySelector(".uppercontainer");
@@ -19,15 +20,21 @@ function clickOnArea(time1) {
   console.log(time1);
   const time2 = Date.now();
   timerText.innerHTML = `${time2 - time1}ms`;
+  area.style.background = "rgb(39, 97, 255)";
+  btn.style.display = "block";
 }
 
 function areaToPlay() {
   area.style.background = "green";
   area.style.cursor = "pointer";
   const time1 = Date.now();
-  area.addEventListener("click", () => {
-    clickOnArea(time1);
-  });
+  area.addEventListener(
+    "click",
+    () => {
+      clickOnArea(time1);
+    },
+    { once: true }
+  );
 }
 
 function startGame() {
