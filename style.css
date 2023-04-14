@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+* {
+    margin: 0;
+}
+
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+.uppercontainer {
+    height: 80%;
+    background-color: rgb(39, 97, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lowercontainer {
+    background-color: #f0f0f0;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.timer {
+    font-size: 2rem;
+}
+
+.rdybtn {
+    font-family: sans-serif;
+    font-size: 3rem;
+    background-color: transparent;
+    color: #f0f0f0;
+    border-radius: 5px;
+    border-width: 0px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.rdybtn:hover {
+    background-color: rgb(240, 240, 240, 0.1)
+}
